@@ -234,11 +234,17 @@ class TrafficSignTrainer:
                             bbox = obj['bbox']
                             class_idx = self.class_to_idx[obj['label']]
                             
+                            # Check for valid image dimensions before division
+                            img_w = annotation.get('width', 0)
+                            img_h = annotation.get('height', 0)
+                            if img_w <= 0 or img_h <= 0:
+                                logging.warning(f"Skipping object in {annotation.get('image_path', 'unknown')} due to invalid image dimensions: width={img_w}, height={img_h}")
+                                continue
                             # Convert to YOLO format (normalized xywh)
-                            x_center = (bbox['xmin'] + bbox['xmax']) / 2 / annotation['width']
-                            y_center = (bbox['ymin'] + bbox['ymax']) / 2 / annotation['height']
-                            width = (bbox['xmax'] - bbox['xmin']) / annotation['width']
-                            height = (bbox['ymax'] - bbox['ymin']) / annotation['height']
+                            x_center = (bbox['xmin'] + bbox['xmax']) / 2 / img_w
+                            y_center = (bbox['ymin'] + bbox['ymax']) / 2 / img_h
+                            width = (bbox['xmax'] - bbox['xmin']) / img_w
+                            height = (bbox['ymax'] - bbox['ymin']) / img_h
                             
                             f.write(f"{class_idx} {x_center:.6f} {y_center:.6f} {width:.6f} {height:.6f}\n")
         
