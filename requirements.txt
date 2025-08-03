@@ -1,2 +1,12 @@
 requests>=2.25.0
 tqdm>=4.60.0
+
+# ML Training dependencies for train_traffic_sign_model.py
+torch>=2.0.0
+torchvision>=0.15.0
+ultralytics>=8.0.0
+opencv-python>=4.5.0
+pillow>=8.0.0
+scikit-learn>=1.0.0
+matplotlib>=3.3.0
+numpy>=1.21.0
