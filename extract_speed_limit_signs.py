@@ -277,7 +277,7 @@ def main():
     # Set up paths
     base_dir = Path(__file__).parent
     data_dir = base_dir / args.data_dir
-    annotations_dir = data_dir / "annotations"
+    annotations_dir = data_dir / "mtsd_v2_fully_annotated" / "annotations" # data_extracted/mtsd_v2_fully_annotated/annotations
     images_dir = data_dir / "images" 
     
     print(f"📁 Data directory: {data_dir}")
