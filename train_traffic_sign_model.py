@@ -274,7 +274,7 @@ class TrafficSignTrainer:
             'epochs': self.config['epochs'],
             'imgsz': self.config['image_size'],
             'batch': self.config['batch_size'],
-            'device': 'cpu' if self.device.type == 'cpu' else 0,
+            'device': 'cpu' if self.device.type == 'cpu' else self.device.index if self.device.index is not None else 0,
             'project': str(self.output_dir),
             'name': 'yolo_training',
             'save': True,
