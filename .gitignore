@@ -4,5 +4,16 @@ __pycache__/
 # Ignore virtual environment directories
 .venv/
 
-# Ignore all subdirectories
+# Ignore all data directories (keep repository lightweight)
 */
+test_dataset/
+
+# Ignore training outputs
+training_output/
+*.log
+
+# Ignore temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
