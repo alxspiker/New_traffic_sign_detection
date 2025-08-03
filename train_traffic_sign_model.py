@@ -367,7 +367,7 @@ class TrafficSignTrainer:
                 binary_path = self.exports_dir / "traffic_signs.bin"
                 
                 # Load the PyTorch model and save as binary
-                model_data = torch.load(exported_files['pt'], map_location='cpu')
+                model_data = torch.load(exported_files['pt'], map_location='cpu', weights_only=True)
                 
                 # Extract just the model weights as binary data
                 model_bytes = bytearray()
