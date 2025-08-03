@@ -17,3 +17,5 @@ training_output/
 *.temp
 .DS_Store
 Thumbs.db
+yolo11n.pt
+yolov8n.pt
